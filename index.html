@@ -1,0 +1,75 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script language="javascript" type="text/javascript" src="webhelper.js"></script>
+  <script language="javascript" type="text/javascript" src="mastermind.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id = "console">
+	    <div id = "board">
+			<h1>Web Helper Not Loaded</h1>
+			<!-- Comments refer to webhelper.js -->
+			<!-- Line 93 adds UL for the guesses pegboard-->
+			<ul id="guesses" class="list-unstyled">
+				<!-- Line 94 adds LI and UL for a turn -->
+				<li>
+					<ul id="code" class="list-unstyled"> 
+						<!-- Line 99 adds each LI in turnRecords row-->
+						<li class="r"></li> 
+						<li class="c"></li> 
+						<li class="y"></li> 
+						<li class="g"></li> 
+						<li class="b"></li>
+						<li class="w"></li>
+					</ul>  
+				</li><!-- Line 101 closes the turn-->
+			</ul>  <!-- Line 103 closes the guesses pegboard-->
+		</div>
+	    <ol id="colors">
+	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "0">
+	            <option value="r" class="r" >Red</option>
+	            <option value="g" class="g" >Green</option>
+	            <option value="c" class="c" >Cyan</option>
+	            <option value="y" class="y" >Yellow</option>
+	            <option value="b" class="b" >Black</option>
+	            <option value="w" class="w" >White</option>
+	            <option value="" class="" selected></option>
+	          </select>
+	      	</li>
+	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "1">
+	            <option value="r" class="r" >Red</option>
+	            <option value="g" class="g" >Green</option>
+	            <option value="c" class="c" >Cyan</option>
+	            <option value="y" class="y" >Yellow</option>
+	            <option value="b" class="b" >Black</option>
+	            <option value="w" class="w" >White</option>
+	            <option value="" class="" selected></option>
+	          </select>
+	      	</li>
+	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "2">
+	            <option value="r" class="r" >Red</option>
+	            <option value="g" class="g" >Green</option>
+	            <option value="c" class="c" >Cyan</option>
+	            <option value="y" class="y" >Yellow</option>
+	            <option value="b" class="b" >Black</option>
+	            <option value="w" class="w" >White</option>
+	            <option value="" class="" selected></option>
+	          </select>
+	      	</li>
+	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "3">
+	            <option value="r" class="r" >Red</option>
+	            <option value="g" class="g" >Green</option>
+	            <option value="c" class="c" >Cyan</option>
+	            <option value="y" class="y" >Yellow</option>
+	            <option value="b" class="b" >Black</option>
+	            <option value="w" class="w" >White</option>
+	            <option value="" class="" selected></option>
+	          </select>
+	      	</li>
+	  	</ol>
+	    <button id="submit-guess" onclick="newGuess()">Submit Guess</button>
+	</div>
+</body>
+</html>
