@@ -4,18 +4,19 @@ var turn=0;
 var colors=[], code=[], guess=[], feedback=[];
 colors = ["r","b","g","w","c","y"];
 var thisTurn = [], turnRecords = [];
-var alertString="";
 
 function start() {
 	setup();
 }
 
 function setup() {
-	var welcome="<h1>Welcome to Mastermind!</h1>\n<p>Here are instructions.</p>";
-	var buttonElement = document.getElementById("submit-guess");
 	var board = document.getElementById("board");
+	board.removeChild(board.childNodes[0]);
+	var title = document.getElementById("title");
+	title.innerHTML = "Mastermind!";
+	boardReset("Here are instructions.");
+	var buttonElement = document.getElementById("submit-guess");
 	buttonElement.innerHTML = "Start Game";
-	board.innerHTML=welcome;
 	buttonElement.onclick = function () {
 		code=startGame();
 	}
@@ -24,10 +25,13 @@ function setup() {
 function startGame() {
 	code=setCode(colors);
 	var buttonElement = document.getElementById("submit-guess");
-	var board = document.getElementById("board");
-	var startPlay="<h1>Code Is Set up!</h1>\n<p>Pick your four choices for your first guess.</p>";
-	buttonElement.innerHTML = "Submit color choices";
-	board.innerHTML=startPlay;
+	board.removeChild(board.childNodes[1]);
+	boardReset("Code Is Set up!<br /><br />\nPick your four choices for your first guess.");
+	buttonElement.innerHTML = "Submit Guess";
+	for (i=0;i<4;i++) {
+		g=document.getElementById(i);
+		guess[i]=g.options[g.selectedIndex].value;
+	}
 	buttonElement.onclick = function () {
 		newGetGuess(code);
 	}
@@ -39,67 +43,70 @@ function newGetGuess(code) {
 	var g = 0;
 	turn++;
 	if (turn > 6){
-		document.getElementById("board").style.height = 300+(20*turn);
+		document.getElementById("board").style.height = 320+(20*turn);
 	}
-	var alertString="";
-	var buttonElement = document.getElementById("submit-guess");
-	var board = document.getElementById("board");
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
 		guess[i]=g.options[g.selectedIndex].value;
 	}
-	alertString=masterMain(code,guess,turn);
-	board.innerHTML=alertString;
+  masterMain(code,guess,turn);
 }
 
 function masterMain(code,guess,turn){
-  var alertString="<h1> Mastermind</h1>\n";
-	var buttonElement = document.getElementById("submit-guess");
-	var board = document.getElementById("board");
+  var board = document.getElementById("board");
+  board.removeChild(board.lastChild);
+	var node = document.createElement('ul');
+	board.appendChild(node).setAttribute("id","turns");
 	feedback = testGuess(code,guess);
 	thisTurn = addTurn(guess,feedback);
 	turnRecords.push(thisTurn);
 	if(feedback[3]=="b"){
-		alertString = newFormatTurnRecords(turnRecords, alertString);
-		alertString=alertString.concat("\nYou guessed it in "+turn+" turns!");
+	  boardReset("You won in "+turn+" turns!");
 		board.style.backgroundImage="url('https://media.giphy.com/media/13vfiD0VBeksYE/giphy.gif')";
 		newGame();
 	}
 	else if(guess[0]=="q"){
-		alertString=alertString.concat("Quitter!");
+	  boardReset("Quitter! Play again?");
 		board.style.backgroundColor = "red";
 		board.style.color = "white";
 		newGame();
 	}
 	else{
-	alertString = newFormatTurnRecords(turnRecords, alertString);
+	  newFormatTurnRecords(turnRecords,turn);
 	}
-	return alertString;
+}
+
+function boardReset(message){
+  var board = document.getElementById("board");
+  board.removeChild(board.childNodes[2]);
+  var messageArea = document.createElement("p");
+  messageArea.innerHTML=message;
+  board.appendChild(messageArea);
 }
 
 function newGame(){
-	var board = document.getElementById("board");
 	var buttonElement = document.getElementById("submit-guess");
 	buttonElement.innerHTML="Play Again";
-	board.innerHTML=alertString;
 	buttonElement.onclick = function () {
 		document.location.reload();
 	}
 }
 
-function newFormatTurnRecords(turnRecords,alertString){
+function newFormatTurnRecords(turnRecords,turn){
 	var thisGuess = "";
 	var thisFeedback = "";
-	var startTurns="<ul id=\"guesses\" class=\"list-unstyled\">\n";
-	var startRow="<li>\n<ul id=\"code\" class=\"list-unstyled clear-both\">";
-	alertString = alertString.concat(startTurns);
+	var board=document.getElementById("board");
 	for (var row=0;row<turn;row++) {
-	    alertString = alertString.concat(startRow);
-	    for (var peg=0;peg<4;peg++){
-	      alertString = alertString.concat("<li class=\""+turnRecords[row][peg]+"\"></li>");
+	    var turnList = document.getElementById("turns");
+	    var node = document.createElement("li");
+	    turnList.appendChild(node);
+	    var newTurn = document.getElementById("turns").lastChild;
+	    var ulNode = document.createElement("ul");
+	    newTurn.appendChild(ulNode).setAttribute("class", "turn");
+	    for (var peg=0;peg<turnRecords[row].length;peg++){
+	      var newList = document.getElementsByClassName("turn");
+	      var liNode = document.createElement("li");
+	      newList[row].appendChild(liNode).setAttribute("class", turnRecords[row][peg]);
 	  }
-	  alertString = alertString.concat("</ul>\n</li>\n");
 	}
-	alertString = alertString.concat("\n</ul>");
-	return alertString;
 }

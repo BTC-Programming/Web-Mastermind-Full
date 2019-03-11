@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -8,24 +9,33 @@
 
 <body>
 	<div id = "console">
-	    <div id = "board">
-			<h1>Web Helper Not Loaded</h1>
-			<!-- Comments refer to webhelper.js -->
-			<!-- Line 93 adds UL for the guesses pegboard-->
-			<ul id="guesses" class="list-unstyled">
-				<!-- Line 94 adds LI and UL for a turn -->
+    <div id = "board">
+  	  <h1 id = "title">Web Helper Not Loaded</h1>
+			<ul id = "turns">
 				<li>
-					<ul id="code" class="list-unstyled"> 
-						<!-- Line 99 adds each LI in turnRecords row-->
+					<ul class="turn"> 
 						<li class="r"></li> 
 						<li class="c"></li> 
 						<li class="y"></li> 
 						<li class="g"></li> 
+						<li class="b"></li>
+						<li class="w"></li>
 					</ul>  
-				</li><!-- Line 101 closes the turn-->
-			</ul>  <!-- Line 103 closes the guesses pegboard-->
+				</li>
+				<li>
+					<ul class="turn"> 
+						<li class="r"></li> 
+						<li class="c"></li> 
+						<li class="g"></li> 
+						<li class="g"></li> 
+						<li class="b"></li>
+						<li class="b"></li>
+					</ul>  
+				</li>
+			</ul>
 		</div>
-	    <ol id="colors">
+	  <div id = "makeGuess">
+  	  <ol id="colors">
 	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "0">
 	            <option value="r" class="r" >Red</option>
 	            <option value="g" class="g" >Green</option>
@@ -66,8 +76,9 @@
 	            <option value="" class="" selected></option>
 	          </select>
 	      	</li>
-	  	</ol>
-	    <button id="submit-guess" onclick="newGuess()">Submit Guess</button>
+  	  	</ol>
+  	    <button id="submit-guess" onclick="newGuess()">Submit Guess</button>
 	</div>
+</div>
 </body>
 </html>

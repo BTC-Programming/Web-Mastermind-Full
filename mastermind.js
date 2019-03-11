@@ -1,5 +1,5 @@
 /* Class Mastermind */
-
+// note: this is the same as non-web mastermind, except for removed globals. 
 // define Main function
 function main() {
 	// tell player the colors
