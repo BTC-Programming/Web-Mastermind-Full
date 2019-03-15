@@ -16,7 +16,6 @@ function setup() {
 	title.innerHTML = "Mastermind!";
 	boardReset("Here are instructions.");
 	var buttonElement = document.getElementById("submit-guess");
-	buttonElement.innerHTML = "Start Game";
 	buttonElement.onclick = function () {
 		code=startGame();
 	}
@@ -26,8 +25,7 @@ function startGame() {
 	code=setCode(colors);
 	var buttonElement = document.getElementById("submit-guess");
 	board.removeChild(board.childNodes[1]);
-	boardReset("Code Is Set up!<br /><br />\nPick your four choices for your first guess.");
-	buttonElement.innerHTML = "Submit Guess";
+	boardReset("Code Is Set up!<br /><br />\nPick your first choices.\n Magenta quits.");
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
 		guess[i]=g.options[g.selectedIndex].value;
@@ -86,7 +84,6 @@ function boardReset(message){
 
 function newGame(){
 	var buttonElement = document.getElementById("submit-guess");
-	buttonElement.innerHTML="Play Again";
 	buttonElement.onclick = function () {
 		document.location.reload();
 	}

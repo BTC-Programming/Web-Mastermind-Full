@@ -7,49 +7,62 @@ html {
     background-color: rgb(47, 70, 45);
     padding: 10px;
     border-radius: 25px;
-    width: 700px;
-    margin:25px 20% 0 20%;
+    width: 500px;
+    margin:25px auto;
 }
 
-#board {
+
+#board, #makeGuess {
     border-radius: 5px;
     font-size: 25px;
     background-color: white;
     padding:10px;
-	  margin:20px 5%;
+	margin:20px auto;
     width: 87%;
-    float:left; 
     overflow: auto;
-    min-height:320px;
+	text-align:center;
+}
+
+#colors {
+	padding-left:0px;
+	margin-left:-10px;
+}
+
+#colors li {
+	list-style:none;
+	display:inline-block;
+	text-indent:none;
 }
 
 select {
-    width: 95%;
+    width: 40px;
+	height:40px;
     font-size: 25px;
     background-color:white;
     padding-top: 0px;
-    margin-top: 2px;
-    margin-right: auto;
-    margin-left: auto;
+	margin:0 auto;
+	border-radius:50px;
 }
 
 select:hover {
-	background-color:magenta;
+	border:1px solid green;
 }
 
 button {
-    width: 90%;
-    height: 40px;
-    font-size: 25px;
-    margin:20px 5%;
+    height:100px;
+	width:100px;
+	border:none;
+	margin-left:-20px;
+    background:top center url("button-red.png") no-repeat;
 }
 button:hover {
-    background-color:magenta;
+    background-image:url("button.png");
 }
 
-button:active {
-    background-color:yellow;
+button:active, button:visited; {
+	border:0px!important;
 }
+
 
 /* Graphic Mastermind Model CSS */
 
@@ -61,21 +74,32 @@ button:active {
 .b { background-color:black;color:white; }
 .y { background-color:yellow; }
 
+#turns {
+	width:315px;
+	margin:20px auto;
+	padding-left:20px;
+	text-align:left;
+}
 
 #turns li {
     list-style:none;
     list-style-type:none;
     list-style-image:none;
+	text-indent:none;
 }
 
 .turn {
-    margin-left:-50px;
+    margin-left:-40px;
     clear:both;
     padding-top:15px;
 }
 
+button:active {
+	border:none;
+}
+
 .turn li {
-  float: left;
+  display:inline-block;
   margin-left: 5px;
   width: 30px;
   height: 28px;
