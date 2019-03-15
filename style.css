@@ -59,8 +59,9 @@ button:hover {
     background-image:url("button.png");
 }
 
-button:active, button:visited; {
+button:active, button:visited, button:focus {
 	border:0px!important;
+	outline:0;
 }
 
 
