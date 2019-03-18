@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <script language="javascript" type="text/javascript" src="webhelper.js"></script>
   <script language="javascript" type="text/javascript" src="mastermind.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -36,50 +35,48 @@
 		</div>
 	  <div id = "makeGuess">
   	  <ol id="colors">
-	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "0">
+	    	<li><select onchange="fourPicked(0)" id = "0">
 	            <option value="r" class="r" ></option>
 	            <option value="g" class="g" ></option>
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" ></option>
-				<option value="q" class="m" ></option>
-	            <option value="" class="" selected></option>
+	            <option value="w" class="w" selected></option>
+				<option value="m" class="m" ></option>
 	          </select>
 	      	</li>
-	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "1">
+	    	<li><select onchange="fourPicked(1)" id = "1">
 	            <option value="r" class="r" ></option>
 	            <option value="g" class="g" ></option>
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" ></option>
-	            <option value="" class="" selected></option>
+	            <option value="w" class="w" selected></option>
 	          </select>
 	      	</li>
-	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "2">
+	    	<li><select onchange="fourPicked(2)" id = "2">
 	            <option value="r" class="r" ></option>
 	            <option value="g" class="g" ></option>
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" ></option>
-	            <option value="" class="" selected></option>
+	            <option value="w" class="w" selected></option>
 	          </select>
 	      	</li>
-	    	<li><select onchange="this.className=this.options[this.selectedIndex].className" id = "3">
+	    	<li>
+			<select onchange="fourPicked(3)" id = "3">
 	            <option value="r" class="r" ></option>
 	            <option value="g" class="g" ></option>
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" ></option>
-	            <option value="" class="" selected></option>
+	            <option value="w" class="w" selected></option>
 	          </select>
 	      	</li>
   	  	</ol>
   	    <button id="submit-guess" onclick="newGuess()"></button>
 	</div>
 </div>
+<script language="javascript" type="text/javascript" src="webhelper.js"></script>
 </body>
 </html>

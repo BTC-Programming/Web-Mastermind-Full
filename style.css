@@ -48,14 +48,32 @@ select:hover {
 	border:1px solid green;
 }
 
+.clicker {
+	color:blue;
+	font-style:underline;
+}
+
+.clicker:hover {
+	color:red;
+}
+
+#colors.hide {
+	display:none;
+}
+
 button {
-    height:100px;
-	width:100px;
-	border:none;
+    height:101px;
+	width:101px;
+	border:2px solid white;
 	margin-left:-20px;
-    background:top center url("button-red.png") no-repeat;
+	border-radius:50%;
+    background:center -1px url("button-red.png") no-repeat;
 }
 button:hover {
+	background-color:yellow;
+}
+
+.fourok {
     background-image:url("button.png");
 }
 
