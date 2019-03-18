@@ -62,12 +62,12 @@ select:hover {
 }
 
 button {
-    height:85px;
-	width:85px;
+    height:80px;
+	width:80px;
 	margin-left:-20px;
 	border-radius:50%;
 	border:2px solid gray;
-    background: -2px -3px black url("button-red.png") no-repeat;
+    background: -4px -5px black url("button-red.png") no-repeat;
 }
 button:hover {
 	border:2px solid yellow;
