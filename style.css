@@ -62,23 +62,22 @@ select:hover {
 }
 
 button {
-    height:101px;
-	width:101px;
-	border:2px solid white;
+    height:85px;
+	width:85px;
 	margin-left:-20px;
 	border-radius:50%;
-    background:center -1px url("button-red.png") no-repeat;
+	border:2px solid gray;
+    background: -2px -3px black url("button-red.png") no-repeat;
 }
 button:hover {
-	background-color:yellow;
+	border:2px solid yellow;
 }
 
 .fourok {
     background-image:url("button.png");
 }
 
-button:active, button:visited, button:focus {
-	border:0px!important;
+button:focus, select:focus {
 	outline:0;
 }
 
@@ -113,7 +112,7 @@ button:active, button:visited, button:focus {
     padding-top:15px;
 }
 
-button:active {
+button:active, select:active {
 	border:none;
 }
 

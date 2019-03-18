@@ -27,8 +27,8 @@ function instructions() {
 }
 
 function fourPicked(sid) {
-	var colorPick = document.getElementById(sid);
 	var included=false;
+	var colorPick = document.getElementById(sid);
 	colorPick.className = '';
 	colorPick.classList.add(colorPick.value);
 	for (var val=0; val<colorsPicked.length;val++){
@@ -46,7 +46,6 @@ function fourPicked(sid) {
 
 function startGame() {
 	code=setCode(colors);
-	var buttonElement = document.getElementById("submit-guess");
 	board.removeChild(board.childNodes[1]);
 	myPicks.className = "";
 	boardReset("Code Is Set up!<br /><br />\nPick four choices.\n <span class=\"m\">Magenta</span> quits.");
@@ -75,7 +74,6 @@ function newGetGuess(code) {
 }
 
 function masterMain(code,guess,turn){
-  var board = document.getElementById("board");
   board.removeChild(board.lastChild);
 	var node = document.createElement('ul');
 	board.appendChild(node).setAttribute("id","turns");
@@ -99,7 +97,6 @@ function masterMain(code,guess,turn){
 }
 
 function boardReset(message){
-  var board = document.getElementById("board");
   board.removeChild(board.childNodes[2]);
   var messageArea = document.createElement("p");
   messageArea.innerHTML=message;
@@ -107,7 +104,6 @@ function boardReset(message){
 }
 
 function newGame(){
-	var buttonElement = document.getElementById("submit-guess");
 	buttonElement.onclick = function () {
 		document.location.reload();
 	}
@@ -116,7 +112,6 @@ function newGame(){
 function newFormatTurnRecords(turnRecords,turn){
 	var thisGuess = "";
 	var thisFeedback = "";
-	var board=document.getElementById("board");
 	for (var row=0;row<turn;row++) {
 	    var turnList = document.getElementById("turns");
 	    var node = document.createElement("li");
