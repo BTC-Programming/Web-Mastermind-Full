@@ -1,6 +1,7 @@
 window.onload = setup;
 
 var turn=0;
+var message="";
 var colorsPicked=[];
 var colors=[], code=[], guess=[], feedback=[];
 colors = ["r","b","g","w","c","y"];
@@ -11,14 +12,11 @@ var buttonElement = document.getElementById("submit-guess");
 var myPicks = document.getElementById("colors");
 
 function setup() {
-	board.removeChild(board.childNodes[0]);
 	title.innerHTML = "Mastermind!";
 	boardReset("<p class=\"clicker\">Click for instructions.</p><p>Press play button below to begin.</p>");
 	board.setAttribute("onclick","instructions()");
 	myPicks.classList.add("hide");
-	buttonElement.onclick = function () {
-		code=startGame();
-	}
+  buttonElement.setAttribute("onclick","startGame()");
 }
 
 function instructions() {
@@ -26,37 +24,16 @@ function instructions() {
 	alert(howTo);
 }
 
-function fourPicked(sid) {
-	var included=false;
-	var colorPick = document.getElementById(sid);
-	colorPick.className = '';
-	colorPick.classList.add(colorPick.value);
-	for (var val=0; val<colorsPicked.length;val++){
-		if (colorsPicked[val]==sid){
-			included=true;
-		}
-	}
-	if (included==false) {
-		colorsPicked.push(sid)
-	}	
-	if (colorsPicked.length==4)
-		Button=document.getElementById("submit-guess");
-		Button.classList.add("fourok");
-}
-
 function startGame() {
 	code=setCode(colors);
-	board.removeChild(board.childNodes[1]);
 	myPicks.className = "";
+  board.className = "";
 	boardReset("Code Is Set up!<br /><br />\nPick four choices.\n <span class=\"m\">Magenta</span> quits.");
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
 		guess[i]=g.options[g.selectedIndex].value;
 	}
-	buttonElement.onclick = function () {
-		newGetGuess(code);
-	}
-	return code;
+	buttonElement.setAttribute("onclick","newGetGuess(code)");
 }
 
 function newGetGuess(code) {
@@ -73,6 +50,23 @@ function newGetGuess(code) {
   masterMain(code,guess,turn);
 }
 
+function fourPicked(sid) {
+	var included=false;
+	var colorPick = document.getElementById(sid);
+	colorPick.className = '';
+	colorPick.classList.add(colorPick.value);
+	for (var val=0; val<colorsPicked.length;val++){
+		if (colorsPicked[val]==sid){
+			included=true;
+		}
+	}
+	if (included==false) {
+		colorsPicked.push(sid)
+	}	
+	if (colorsPicked.length==4)
+		buttonElement.classList.add("fourok");
+}
+
 function masterMain(code,guess,turn){
   board.removeChild(board.lastChild);
 	var node = document.createElement('ul');
@@ -81,15 +75,14 @@ function masterMain(code,guess,turn){
 	thisTurn = addTurn(guess,feedback);
 	turnRecords.push(thisTurn);
 	if(feedback[3]=="b"){
-	  boardReset("You won in "+turn+" turns!");
-		board.style.backgroundImage="url('https://media.giphy.com/media/13vfiD0VBeksYE/giphy.gif')";
-		newGame();
+	  boardReset("<p>You won in "+turn+" turns!</p><p>Click button to play again.</p> ");
+    board.classList.add("won");
+		buttonElement.setAttribute("onclick","newGame(turn)");
 	}
 	else if(guess[0]=="m"){
 	  boardReset("Quitter! Play again? Press play.");
-		board.style.backgroundColor = "red";
-		board.style.color = "white";
-		newGame();
+    board.classList.add("quitted");
+		buttonElement.setAttribute("onclick","startGame()");
 	}
 	else{
 	  newFormatTurnRecords(turnRecords,turn);
@@ -103,11 +96,12 @@ function boardReset(message){
   board.appendChild(messageArea);
 }
 
-function newGame(){
+/* function newGame(){
 	buttonElement.onclick = function () {
 		document.location.reload();
 	}
 }
+*/
 
 function newFormatTurnRecords(turnRecords,turn){
 	var thisGuess = "";

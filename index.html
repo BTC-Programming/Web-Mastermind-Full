@@ -9,29 +9,7 @@
 <body>
 	<div id = "console">
     <div id = "board">
-  	  <h1 id = "title">Web Helper Not Loaded</h1>
-			<ul id = "turns">
-				<li>
-					<ul class="turn"> 
-						<li class="r"></li> 
-						<li class="c"></li> 
-						<li class="y"></li> 
-						<li class="g"></li> 
-						<li class="b"></li>
-						<li class="w"></li>
-					</ul>  
-				</li>
-				<li>
-					<ul class="turn"> 
-						<li class="r"></li> 
-						<li class="c"></li> 
-						<li class="g"></li> 
-						<li class="g"></li> 
-						<li class="b"></li>
-						<li class="b"></li>
-					</ul>  
-				</li>
-			</ul>
+      <h1 id="title">Web Helper Not Loaded</h1>
 		</div>
 	  <div id = "makeGuess">
   	  <ol id="colors">
@@ -41,8 +19,9 @@
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" selected></option>
-				<option value="m" class="m" ></option>
+	            <option value="w" class="w" ></option>
+				      <option value="m" class="m" ></option>
+              <option class="hide" selected></option>
 	          </select>
 	      	</li>
 	    	<li><select onchange="fourPicked(1)" id = "1">
@@ -51,7 +30,8 @@
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" selected></option>
+	            <option value="w" class="w" ></option>
+              <option class="hide"  selected></option>            
 	          </select>
 	      	</li>
 	    	<li><select onchange="fourPicked(2)" id = "2">
@@ -60,7 +40,8 @@
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" selected></option>
+	            <option value="w" class="w" ></option>
+              <option class="hide"  selected></option>
 	          </select>
 	      	</li>
 	    	<li>
@@ -70,13 +51,15 @@
 	            <option value="c" class="c" ></option>
 	            <option value="y" class="y" ></option>
 	            <option value="b" class="b" ></option>
-	            <option value="w" class="w" selected></option>
+	            <option value="w" class="w" ></option>
+              <option class="hide" selected></option>
 	          </select>
 	      	</li>
   	  	</ol>
-  	    <button id="submit-guess" onclick="newGuess()"></button>
+  	    <button id="submit-guess"></button>
 	</div>
 </div>
 <script language="javascript" type="text/javascript" src="webhelper.js"></script>
+<script language="javascript" type="text/javascript" src="average.js"></script>
 </body>
 </html>

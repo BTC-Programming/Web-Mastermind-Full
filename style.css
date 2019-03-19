@@ -57,17 +57,25 @@ select:hover {
 	color:red;
 }
 
-#colors.hide {
+.hide {
 	display:none;
 }
 
+#board.quitted {
+  background-color:red;
+  color:white;
+}
+#board.won {
+  background-image:url('https://media.giphy.com/media/13vfiD0VBeksYE/giphy.gif');
+}
+
 button {
-    height:80px;
+  height:80px;
 	width:80px;
 	margin-left:-20px;
 	border-radius:50%;
 	border:2px solid gray;
-    background: -4px -5px black url("button-red.png") no-repeat;
+  background: -4px -5px black url("button-red.png") no-repeat;
 }
 button:hover {
 	border:2px solid yellow;
@@ -88,12 +96,15 @@ button:focus, select:focus {
 .g { background-color:green; }
 .c { background-color:cyan; }
 .r { background-color:red; }
-.w { background-color:white; }
+.w { 
+  background-color:white; 
+  border-radius:50%;
+  border:1px solid black; }
 .b { background-color:black;color:white; }
 .y { background-color:yellow; }
 
 #turns {
-	width:315px;
+	width:350px;
 	margin:20px auto;
 	padding-left:20px;
 	text-align:left;
