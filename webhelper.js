@@ -25,9 +25,13 @@ function instructions() {
 }
 
 function startGame() {
+	for (i=0;i<4;i++) {
+		g=document.getElementById(i);
+		g.className = "";
+	}
 	code=setCode(colors);
 	myPicks.className = "";
-  board.className = "";
+  	board.className = "";
 	boardReset("Code Is Set up!<br /><br />\nPick four choices.\n <span class=\"m\">Magenta</span> quits.");
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
