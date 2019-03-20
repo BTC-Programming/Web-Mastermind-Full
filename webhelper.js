@@ -1,5 +1,5 @@
 window.onload = setup;
-
+var turnRecords=[];
 var turn=0;
 var message="";
 var colorsPicked=[];
@@ -29,6 +29,7 @@ function startGame() {
 		g=document.getElementById(i);
 		g.className = "";
 	}
+	turnRecords=[];
 	code=setCode(colors);
 	myPicks.className = "";
   	board.className = "";
